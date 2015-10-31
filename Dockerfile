@@ -15,6 +15,7 @@ RUN apk add --update openssl && \
     mv "csources-devel" "csources" && \
     touch "csources/.git" && \
     sh bootstrap.sh && \
+    chmod 755 "/opt/Nim/bin/nim" && \
     ln -s "/opt/Nim/bin/nim" "/usr/local/bin/nim" && \
     rm -rf "/opt/Nim/csources" "/opt/Nim/tests" && \
     \

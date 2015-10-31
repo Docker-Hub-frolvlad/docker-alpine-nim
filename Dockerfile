@@ -13,6 +13,7 @@ RUN apk add --update openssl && \
     unzip devel.zip && \
     rm -rf "devel.zip" && \
     mv csources-devel csources && \
+    touch csources/.git && \
     sh bootstrap.sh && \
     ln -s /opt/Nim/bin/nim /usr/local/bin/nim && \
     rm -rf "/opt/Nim/csources" "/opt/Nim/tests" && \

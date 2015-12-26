@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-gcc
 
-RUN apk add --update openssl && \
+RUN apk add --no-cache --virtual=build-dependencies openssl && \
     mkdir -p "/opt" && \
     \
     cd "/opt" && \
@@ -28,5 +28,4 @@ RUN apk add --update openssl && \
     mv nimble "/usr/local/bin/" && \
     rm -rf "/opt/nimble-master" && \
     \
-    apk del openssl && \
-    rm -rf "/var/cache/apk/"*
+    apk del build-dependencies

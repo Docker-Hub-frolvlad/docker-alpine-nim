@@ -1,3 +1,7 @@
+[![Docker Stars](https://img.shields.io/docker/stars/frolvlad/alpine-nim.svg?style=flat-square)](https://hub.docker.com/r/frolvlad/alpine-nim/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/frolvlad/alpine-nim.svg?style=flat-square)](https://hub.docker.com/r/frolvlad/alpine-nim/)
+
+
 Nim Docker image
 ================
 

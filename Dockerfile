@@ -1,7 +1,7 @@
 FROM frolvlad/alpine-gcc
 
-RUN export NIM_VERSION=0.12.0 && \
-    export NIMBLE_VERSION=0.6.4 && \
+RUN export NIM_VERSION=0.13.0 && \
+    export NIMBLE_VERSION=0.7.2 && \
     \
     apk add --no-cache --virtual=build-dependencies ca-certificates && \
     mkdir -p "/opt" && \

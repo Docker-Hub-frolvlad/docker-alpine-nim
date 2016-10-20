@@ -1,9 +1,9 @@
 FROM frolvlad/alpine-gcc
 
-RUN export NIM_VERSION=0.14.2 && \
-    export NIMBLE_VERSION=0.7.4 && \
+RUN export NIM_VERSION=0.15.0 && \
+    export NIMBLE_VERSION=0.7.10 && \
     \
-    apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
+    apk add --no-cache --virtual=.build-dependencies wget ca-certificates git && \
     mkdir -p "/opt" && \
     \
     cd "/opt" && \
@@ -20,7 +20,7 @@ RUN export NIM_VERSION=0.14.2 && \
     cd "/opt" && \
     wget "https://github.com/nim-lang/nimble/archive/v$NIMBLE_VERSION.tar.gz" -O - | tar xz && \
     cd "nimble-$NIMBLE_VERSION" && \
-    nim compile --run "src/nimble" build && \
+    nim compile --run "src/nimble" build --accept && \
     mv nimble "/usr/local/bin/" && \
     rm -rf "/opt/nimble-$NIMBLE_VERSION" && \
     \

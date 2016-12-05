@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-gcc
 
-RUN export NIM_VERSION=0.15.0 && \
+RUN export NIM_VERSION=0.15.2 && \
     export NIMBLE_VERSION=0.7.10 && \
     \
     apk add --no-cache --virtual=.build-dependencies wget ca-certificates git && \
@@ -14,6 +14,7 @@ RUN export NIM_VERSION=0.15.0 && \
     mv "csources-master" "csources" && \
     touch "csources/.git" && \
     sh bootstrap.sh && \
+    chmod +x "/opt/Nim/bin/nim" && \
     ln -s "/opt/Nim/bin/nim" "/usr/local/bin/nim" && \
     rm -r "./csources" "./tests" "./web" "./rnimcache" && \
     \
@@ -22,6 +23,7 @@ RUN export NIM_VERSION=0.15.0 && \
     cd "nimble-$NIMBLE_VERSION" && \
     nim compile --run "src/nimble" build --accept && \
     rm -rf /tmp/* && \
+    chmod +x nimble && \
     mv nimble "/usr/local/bin/" && \
     rm -rf "/opt/nimble-$NIMBLE_VERSION" && \
     \

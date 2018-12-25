@@ -17,7 +17,7 @@ Usage Example
 -------------
 
 ```bash
-$ docker run --rm frolvlad/alpine-nim sh -c "echo 'echo("'"Hello World"'")' | nim compile --run -"
+$ docker run --rm frolvlad/alpine-nim sh -c "echo 'echo("'"Hello World"'")' >hello.nim && nim compile --run hello.nim"
 ```
 
 Once you have run this command you will get printed 'Hello World' from Nim!

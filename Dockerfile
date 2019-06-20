@@ -1,7 +1,7 @@
 FROM frolvlad/alpine-gcc
 
-RUN export NIM_VERSION=0.19.4 && \
-    export NIMBLE_VERSION=0.9.0 && \
+RUN export NIM_VERSION=0.20.0 && \
+    export NIMBLE_VERSION=0.10.2 && \
     \
     apk add --no-cache libcrypto1.1 libssl1.1 && \
     apk add --no-cache --virtual=.build-dependencies wget ca-certificates git && \
@@ -20,7 +20,7 @@ RUN export NIM_VERSION=0.19.4 && \
     ./koch boot -d:release && \
     chmod +x "/opt/Nim/bin/nim" && \
     ln -s "/opt/Nim/bin/nim" "/usr/local/bin/nim" && \
-    rm -r "./csources" "./tests" "./web" && \
+    rm -r "./csources" "./tests" && \
     \
     cd "/opt" && \
     wget "https://github.com/nim-lang/nimble/archive/v$NIMBLE_VERSION.tar.gz" -O - | tar xz && \

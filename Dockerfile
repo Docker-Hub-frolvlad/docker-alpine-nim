@@ -4,7 +4,7 @@ RUN export NIM_VERSION=1.6.8 && \
     export NIMBLE_VERSION=0.13.1 && \
     \
     apk add --no-cache libcrypto1.1 libssl1.1 && \
-    apk add --no-cache --virtual=.build-dependencies wget ca-certificates git && \
+    apk add --no-cache --virtual=.build-dependencies wget ca-certificates git make && \
     mkdir -p "/opt" && \
     \
     cd "/opt" && \

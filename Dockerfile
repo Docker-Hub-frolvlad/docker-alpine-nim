@@ -11,12 +11,12 @@ RUN export NIM_VERSION=1.6.8 && \
     wget "https://github.com/nim-lang/Nim/archive/v$NIM_VERSION.tar.gz" -O - | tar xz && \
     mv "./Nim-$NIM_VERSION" "./Nim" && \
     cd "./Nim" && \
-    wget "https://github.com/nim-lang/csources/archive/master.tar.gz" -O - | tar xz && \
-    mv "./csources-master" "./csources" && \
+    wget "https://github.com/nim-lang/csources_v1/archive/master.tar.gz" -O - | tar xz && \
+    mv "./csources_v1-master" "./csources" && \
     cd "./csources" && \
-    sh build.sh && \
+    make -j && \
     cd .. && \
-    ./bin/nim c koch && \
+    ./bin/nim c -d:release koch && \
     ./koch boot -d:release && \
     chmod +x "/opt/Nim/bin/nim" && \
     ln -s "/opt/Nim/bin/nim" "/usr/local/bin/nim" && \

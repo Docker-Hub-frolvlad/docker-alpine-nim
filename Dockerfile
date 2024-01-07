@@ -1,9 +1,9 @@
 FROM frolvlad/alpine-gcc
 
-RUN export NIM_VERSION=1.6.8 && \
-    export NIMBLE_VERSION=0.13.1 && \
+RUN export NIM_VERSION=2.0.2 && \
+    export NIMBLE_VERSION=0.14.2 && \
     \
-    apk add --no-cache libcrypto1.1 libssl1.1 && \
+    apk add --no-cache libcrypto3 libssl3 && \
     apk add --no-cache --virtual=.build-dependencies wget ca-certificates git make && \
     mkdir -p "/opt" && \
     \
@@ -11,8 +11,8 @@ RUN export NIM_VERSION=1.6.8 && \
     wget "https://github.com/nim-lang/Nim/archive/v$NIM_VERSION.tar.gz" -O - | tar xz && \
     mv "./Nim-$NIM_VERSION" "./Nim" && \
     cd "./Nim" && \
-    wget "https://github.com/nim-lang/csources_v1/archive/master.tar.gz" -O - | tar xz && \
-    mv "./csources_v1-master" "./csources" && \
+    wget "https://github.com/nim-lang/csources_v2/archive/master.tar.gz" -O - | tar xz && \
+    mv "./csources_v2-master" "./csources" && \
     cd "./csources" && \
     make -j && \
     cd .. && \
